@@ -35,17 +35,17 @@ def notify_user():
 #     my_server.reboot()
     # logging.info('Attempting to reboot server...')
 
-
+url = 'https://dankolodny.com/dne'
 try:
-    r = requests.get('https://dankolodny.com/dne', timeout=5)
+    r = requests.get(url, timeout=5)
     print(r.status_code)
 
     if r.status_code != 200:
         logging.info('Website is DOWN!')
         notify_user()
         # reboot_server()
-    # else:
-    #     logging.info('Website is UP')
+    else:
+        logging.info('Website is UP')
 except Exception as e:
     logging.info('Website is DOWN!')
     notify_user()
